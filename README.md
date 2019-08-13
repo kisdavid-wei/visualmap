@@ -6,3 +6,6 @@
 2. 把需要展现的地址放在addresses.txt文件里面
 3. 运行scrapy crawl gaode
 4. 运行python map.py
+
+# 效果图
+![demo](https://raw.githubusercontent.com/kisdavid-wei/visualmap/master/static/demo.PNG)

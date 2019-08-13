@@ -8,7 +8,7 @@
 class geopeline(object):
     def process_item(self, item, spider):
         if spider.name == 'gaode':
-            with open('formatted_addresses.csv', 'a', encoding='utf-8') as f:
-                f.write(item['address']+','+item['formatted_address']+','+ item['formatted_province']+','+ item['formatted_city']+','+ item['formatted_district']+','+ item['longitude']+','+ item['latitude']+','+
+            with open('./static/formatted_addresses.csv', 'a', encoding='utf-8') as f:
+                f.write(item['address']+','+item['formatted_address']+','+ item['formatted_province']+','+ item['formatted_city']+','+ item['formatted_district']+','+item['longitude']+','+ item['latitude']+','+
                 item['level']+'\n')
         return item

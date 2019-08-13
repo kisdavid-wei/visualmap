@@ -12,14 +12,14 @@ class GaodeSpider(scrapy.Spider):
         address = f.readline()
         address = address[:-1]
         while address != '':
-            start_urls.append('https://restapi.amap.com/v3/geocode/geo?key=yourgaodekey&address='+ urllib.parse.quote(address))
+            start_urls.append('https://restapi.amap.com/v3/geocode/geo?key=368938c50860cced06f7db8b3433b68d&address='+ urllib.parse.quote(address))
             address = f.readline()
             address = address[:-1]
             print(address)
 
-    with open('formatted_addresses.csv', 'w', encoding='utf-8') as f:
+    with open('./static/formatted_addresses.csv', 'w', encoding='utf-8') as f:
         f.write('address' + ',' + 'formatted_address' + ',' + 'formatted_province' + ',' +
-            'formatted_city' + ',' + 'formatted_district'+ ',' + 'longitude' + ',' +
+            'formatted_city' + ',' + 'formatted_district'+ ',' +'longitude' + ',' +
                     'latitude' + ',' +
                 'level'+ '\n')
 

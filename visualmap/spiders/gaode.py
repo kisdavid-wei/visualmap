@@ -3,16 +3,23 @@ import scrapy
 import urllib.parse
 import json
 from visualmap.items import geoDetail
+import configparser
 
 class GaodeSpider(scrapy.Spider):
     name = 'gaode'
     allowed_domains = ['www.amap.com']
     start_urls = []
+
+    config = configparser.ConfigParser()
+    path = 'app.config'
+    config.read(path)
+    gaodekey = config.get('key', 'gaodekey')
+
     with open('addresses.txt', 'r', encoding='utf-8') as f:
         address = f.readline()
         address = address[:-1]
         while address != '':
-            start_urls.append('https://restapi.amap.com/v3/geocode/geo?key=368938c50860cced06f7db8b3433b68d&address='+ urllib.parse.quote(address))
+            start_urls.append('https://restapi.amap.com/v3/geocode/geo?key='+gaodekey+'&address='+ urllib.parse.quote(address))
             address = f.readline()
             address = address[:-1]
             print(address)
